@@ -19,9 +19,10 @@ function get(){
     global $src;
     $url = $_REQUEST["geturl"];
     $src = dirname(__FILE__) . "/img/shot.png";
-    $command = '/usr/local/bin/wkhtmltoimage "' . $url . '" "' . $src . '"';
+    system("rm -f '" . $src ."'");
+    $command = "/usr/local/bin/wkhtmltoimage '" . $url . "' '" . $src . "'";
     system($command);
-    $src = "img/shot.png";
+    $src = "img/shot.png?" . time();
 }
 ?>
 <!DOCTYPE html>
