@@ -21,6 +21,7 @@ function get(){
     $src = dirname(__FILE__) . "/img/shot.png";
     system("rm -f '" . $src ."'");
     $command = "/usr/local/bin/wkhtmltoimage '" . $url . "' '" . $src . "'";
+    $command = 'google-chrome --headless --disable-gpu --screenshot="' . $src . '" --window-size=1100,900 ' . $url;
     system($command);
     $src = "img/shot.png?" . time();
 }
